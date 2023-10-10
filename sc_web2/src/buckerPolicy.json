@@ -1,0 +1,34 @@
+{
+  "Version":"2012-10-17",
+  "Statement":
+    [
+      {
+        "Sid":"2",
+        "Effect":"Allow",
+        "Principal":
+          {
+            "AWS":"arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E1LJT1QFB44MY2"
+          },
+        "Action":"s3:GetObject",
+        "Resource":"arn:aws:s3:::sportscafeimages/*"
+      },
+      {
+        "Sid":"DelegateS3Access",
+        "Effect":"Allow",
+        "Principal":
+          {
+            "AWS":"arn:aws:iam::377530873323:root"
+          },
+        "Action":
+          [
+            "s3:ListBucket",
+            "s3:GetObject"
+          ],
+        "Resource":
+          [
+            "arn:aws:s3:::sportscafeimages/*",
+            "arn:aws:s3:::sportscafeimages"
+          ]
+      }
+    ]
+}

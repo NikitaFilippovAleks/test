@@ -1,0 +1,19 @@
+{
+  "payment": {
+    "custom": "montant personnalisé",
+    "full": "payer en totalité",
+    "your": "payer pour vos articles"
+  },
+  "models": {
+    "bill": {
+      "divide": "divisez la facture également",
+      "one": "Loi",
+      "split": "Diviser la facture",
+      "table": "Table",
+      "total": "Facture totale"
+    },
+    "menu": {
+      "viewMenu": "afficher le menu"
+    }
+  }
+}

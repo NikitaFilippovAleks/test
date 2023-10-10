@@ -1,0 +1,5 @@
+.details-box
+  %ul.text-blue-deep
+    - @items&.each do |item|
+      - item.quantity.times do
+        = render 'location_tables/pay_by_items/item', item: item

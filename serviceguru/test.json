@@ -1,0 +1,9 @@
+{
+  "type": "Section::Text"
+},
+{
+  "type": "Section::Image",
+},
+{
+  "type": "Section::Video",
+}

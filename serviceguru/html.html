@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <meta content='width=device-width, initial-scale=1' name='viewport' />
+  <script>
+    function isAndroid() {
+      if (typeof Android !== 'undefined') {
+        return true;
+      }
+    }
+
+    function isiOS() {
+      if (typeof BridgeCommander !== 'undefined') {
+        return true;
+      }
+    }
+
+    function imageOnClick(url) {
+      if (isAndroid()) {
+        Android.openImage(url);
+      } else if (isiOS()) {
+        BridgeCommander.call('openImage', url)
+      }
+    }
+
+    function videoOnClick(url) {
+      if (isAndroid()) {
+        Android.openVideo(url);
+      } else if (isiOS()) {
+        BridgeCommander.call('openVideo', url)
+      }
+    }
+
+    function lessonLearned() {
+      if (isAndroid()) {
+        Android.finishLesson();
+      } else if (isiOS()) {
+        BridgeCommander.call('finishLesson')
+      }
+    }
+  </script>
+  <style type='text/css'>
+    .lesson-template-wrapper {
+      width: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none
+    }
+
+    .lesson-template-wrapper button.learned {
+      background-color: #009cd0;
+      color: #fff;
+      width: 100%;
+      height: 40px;
+      border: 0
+    }
+
+    .lesson-template-wrapper h1,
+    .lesson-template-wrapper h2,
+    .lesson-template-wrapper h3 {
+      padding: 0;
+      margin: 0;
+      word-break: break-word;
+      margin-bottom: 15px
+    }
+
+    .lesson-template-wrapper h1,
+    .lesson-template-wrapper h2,
+    .lesson-template-wrapper h3,
+    .lesson-template-wrapper p,
+    .lesson-template-wrapper .ql-size-huge,
+    .lesson-template-wrapper .ql-size-large,
+    .lesson-template-wrapper .section {
+      font-family: Tahoma, Verdana, Segoe, sans-serif !important
+    }
+
+    .lesson-template-wrapper h1 {
+      font-size: 32px;
+      margin-top: 20px
+    }
+
+    .lesson-template-wrapper h2 {
+      font-size: 28px;
+      margin-top: 10px
+    }
+
+    .lesson-template-wrapper h3 {
+      font-size: 24px
+    }
+
+    .lesson-template-wrapper p.small {
+      font-size: 12px;
+      margin-bottom: 0;
+      font-style: italic
+    }
+
+    .lesson-template-wrapper p.sign {
+      margin: 5px 0 15px;
+      font-size: 12px;
+      font-style: italic
+    }
+
+    .lesson-template-wrapper .ql-size-huge {
+      font-size: 20px
+    }
+
+    .lesson-template-wrapper .ql-size-large {
+      font-size: 18px
+    }
+
+    .lesson-template-wrapper img {
+      width: 100%
+    }
+
+    .lesson-template-wrapper .section.text {
+      word-break: break-word;
+      text-align: justify
+    }
+
+    .lesson-template-wrapper .section.image {
+      margin: 10px 0
+    }
+
+    .lesson-template-wrapper .section.video {
+      position: relative
+    }
+
+    .lesson-template-wrapper .section.video .img-overlay {
+      background: url(default_play_overlay_light_gray.png) no-repeat center center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .lesson-template-wrapper .section.hosted-video {
+      position: relative;
+      width: 100%
+    }
+
+    .lesson-template-wrapper .section.hosted-video video {
+      width: 100%
+    }
+
+    .lesson-template-wrapper .section.dish {
+      background-color: #f1f1f1;
+      margin: 10px -10px;
+      padding-top: 10px
+    }
+
+    .lesson-template-wrapper .section.dish .substrate {
+      background-color: #fff;
+      margin: 0 10px;
+      padding: 10px;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.28)
+    }
+
+    .lesson-template-wrapper .section.dish .substrate p.category {
+      color: #bebebe;
+      text-transform: uppercase;
+      font-size: 12px
+    }
+
+    .lesson-template-wrapper .section.dish .substrate p.title {
+      font-weight: bold;
+      margin: 15px 0 5px
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .portion,
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .price,
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .currency,
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .dash,
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .unit {
+      display: inline-block
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .dash {
+      margin: 0 20px
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .portion,
+    .lesson-template-wrapper .section.dish .substrate .price-wrapper .price-entity .price {
+      margin-right: 5px
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .path .path-entity {
+      display: inline-block;
+      border: 1px solid #dcdcdc;
+      padding: 5px 0 5px 10px;
+      position: relative;
+      height: 20px;
+      margin: 10px 20px 0 0
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .path .path-entity:after {
+      position: absolute;
+      right: -28px;
+      top: 1px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 14px solid #fff;
+      border-right: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-top: 14px solid transparent
+    }
+
+    .lesson-template-wrapper .section.dish .substrate .path .path-entity:before {
+      position: absolute;
+      right: -32px;
+      top: -1px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 16px solid #dcdcdc;
+      border-right: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-top: 16px solid transparent
+    }
+
+    .lesson-template-wrapper .section.dish .substrate img {
+      width: 100%;
+      margin-bottom: 10px
+    }
+  </style>
+</head>
+
+<body>
+  <div class='lesson-template-wrapper'>
+    <h1>Первый урок</h1>
+    <h2 id='chapter_10'>Js</h2>
+    <div class='section text'>
+      <p>Hello World</p>
+    </div>
+    <div class='section image' onClick='imageOnClick(&#39;https://serviceguru-minio.secret-agents.ru/service-guru/uploads/pack/image/14/x1920_d1a853f55565a4999888effc370742a5.jpg&#39;)'><img src='x1920_d1a853f55565a4999888effc370742a5.jpg' /></div>
+    <div class='section text'>
+      <p>Посмотрите видео.</p>
+    </div>
+    <div class='section video' onclick='videoOnClick(&#39;https://youtu.be/PE0q76vg-FE&#39;)'><img src='x1920_ba125f5316fcf2b4cea29a19e106474d.jpg' />
+      <div class='img-overlay'></div>
+      <p class='sign'></p>
+    </div>
+    <div class='section dish'>
+      <div class='substrate'><img src='x1920_9cbb55f29f6fcc85de5088b0508232b1.jpg' />
+        <p class='category'>Основное, горячие</p>
+        <h4>Домашний лимонад</h4>
+        <div class='description'>
+          <p>просто лимонад</p>
+        </div>
+        <div class='path-wrapper'>
+          <p class='title'>Путь в системе</p>
+          <div class='path'>
+            <div class='path-entity'>Основное</div>
+            <div class='path-entity'>Горячие</div>
+          </div>
+        </div>
+        <div class='price-wrapper'>
+          <p class='title'>Стоимость</p>
+          <div class='price-entity'>
+            <div class='portion'>250</div>
+            <div class='unit'>г</div>
+            <div class='dash'>&mdash;</div>
+            <div class='price'>250</div>
+            <div class='currency'>руб.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 id='chapter_20'>Глава 2</h2>
+    <div class='section text'>
+      <p>Оьычное видео.</p>
+      <ul>
+        <li>Пункт 1</li>
+        <li>Пункт 2</li>
+        <li>Пункт 3</li>
+      </ul>
+    </div>
+    <div class='section hosted-video'><video controls='' preload='metadata' src='https://serviceguru-minio.secret-agents.ru/service-guru/uploads/pack/compressed_video/20/Line_Twirl_x264.mp4-compressed_video.mp4#t=0.1'></video></div><button class='learned' onclick='lessonLearned()'>Готово</button>
+  </div>
+</body>
+
+</html>
+
+<script>
+  function lessonLearned() {
+    if (isAndroid()) {
+      Android.finishLesson();
+    } else if (isiOS()) {
+      BridgeCommander.call('finishLesson')
+    }
+  }
+</script>
+
+<body>
+  <button class='learned' onclick='lessonLearned()'>Готово</button>
+</body>

@@ -1,0 +1,19 @@
+{
+  "payment": {
+    "custom": "custom amount",
+    "full": "pay in full",
+    "your": "pay for your items"
+  },
+  "models": {
+    "bill": {
+      "divide": "divide the bill equally",
+      "one": "Bill",
+      "split": "Split the bill",
+      "table": "Table",
+      "total": "Total bill"
+    },
+    "menu": {
+      "viewMenu": "view menu"
+    }
+  }
+}

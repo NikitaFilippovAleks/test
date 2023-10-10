@@ -1,0 +1,19 @@
+{
+  "payment": {
+    "custom": "cantidad personalizada",
+    "full": "pagar en su totalidad",
+    "your": "pague por sus artículos"
+  },
+  "models": {
+    "bill": {
+      "divide": "divida la factura en partes iguales",
+      "one": "Factura",
+      "split": "Dividir la cuenta",
+      "table": "Tabla",
+      "total": "Factura total"
+    },
+    "menu": {
+      "viewMenu": "ver menú"
+    }
+  }
+}

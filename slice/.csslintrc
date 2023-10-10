@@ -1,0 +1,6 @@
+{
+  "exclude-list": [
+    "node_modules",
+    "app/assets/builds"
+  ]
+}
